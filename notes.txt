@@ -1,0 +1,10 @@
+Start off with
+pipenv install sqlalchemy
+pipenv shell
+Now we can import sqlalchemy!
+
+to run the tables:
+python3 tables.py
+
+to run the main:
+python3 main.py
