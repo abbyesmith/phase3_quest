@@ -23,23 +23,26 @@ if __name__ == '__main__':
     )
     with Session(engine) as session:
         in_program = True
+
         print("Welcome brave soul! You are entering into the land of King Arthur who needs your help in the quest for the holy grail.")
         while in_program:
             start_input = input("Are you signing in as a new user or an existing player? (new / existing / not sure) ").lower()
             # user input resolved
             if start_input == "new":
-                new_username = input("Welcome noble knight! Please enter a unique username: ")
-                checking_usernames = session.query(User_Info).filter(User_Info.username == new_username).first()
+                username_input = input("Welcome noble knight! Please enter a unique username: ")
+                checking_usernames = session.query(User_Info).filter(User_Info.username == username_input).first()
                 if checking_usernames:
-                    print(f"The username {new_username} already exists. Please select a unique username.")
+                    print(f"The username {username_input} already exists. Please select a unique username.")
                 else:
                     new_password = input("Password: ")
-                    new_user = User_Info(username=new_username, password=new_password)
+                    new_user = User_Info(username=username_input, password=new_password)
                     session.add(new_user)
                     session.commit()
-                    print(f"Success! Username: {new_username} Password: {new_password}")
+                    print(f"Success! Username: {username_input} Password: {new_password}")
+                    # current_user_id is the id of the user that will be needed to link their account to their knights on the next page
+                    current_user_id = session.query(User_Info.id).filter_by(username = username_input).scalar()
                     in_program = False
-                    introduction(session)
+                    introduction(session, current_user_id)
                     # THIS PATH IS DONE
 
             elif start_input == "existing":
@@ -47,13 +50,16 @@ if __name__ == '__main__':
                 username_input = input("Enter your username: \n")
                 checking_usernames = session.query(User_Info).filter(User_Info.username == username_input).first()
                 if checking_usernames:
-                    print(f"Welcome back {username_input}!")
-                    password_input = input("Enter your password: \n")
+                    print(f"\nWelcome back {username_input}!")
+                    # current_user_id is the id of the user that will be needed to link their account to their knights on the next page
+                    current_user_id = session.query(User_Info.id).filter_by(username = username_input).scalar()
+                    password_input = input("\nEnter your password: \n")
                     checking_passwords = session.query(User_Info).filter(User_Info.password == password_input).first()
                     if checking_passwords:
-                        print("Log in successful")
+                        print("\nLog in successful")
+                        input("\n Click any key to continue \n")
                         in_program = False
-                        introduction(session)
+                        introduction(session, current_user_id)
                     else:
                         print(f"Error: {password_input} is not your password")
                         # THIS OPTION IS DONE
