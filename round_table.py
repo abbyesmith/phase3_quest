@@ -1,8 +1,13 @@
+import threading
 import sys
 from sqlalchemy import *
 from sqlalchemy.orm import *
 from playsound import playsound
 from tables import Round_Table
+
+
+def play_sound():
+    playsound('/Users/abbysmith/Development/code/phase-3/phase3_quest/the-knights-at-camelot-singing-the-entire-knights-of-the-round-table-song.mp3')
 
 def round_table(session, knight_full_title, knight_short_title, successful_quest_id_array, result_array):
     logged_in = True
@@ -11,7 +16,10 @@ def round_table(session, knight_full_title, knight_short_title, successful_quest
         input("\n Click enter/return to continue \n")
         print(f"I name thee {knight_full_title}, KNIGTH OF THE ROUND TABLE")
         input("\n Click enter/return to continue \n")
-        playsound('/Users/abbysmith/Development/code/phase-3/phase3_quest/the-knights-at-camelot-singing-the-entire-knights-of-the-round-table-song.mp3')
+        
+        sound_thread = threading.Thread(target=play_sound)
+        sound_thread.start()        
+        
         print(
         '''
                                                                 |\/\/\/\/|
@@ -59,7 +67,9 @@ def round_table(session, knight_full_title, knight_short_title, successful_quest
         round_table_rows = session.query(Round_Table).all()
         for row in round_table_rows:
             print(row.__repr__())
-        logged_in = False
+        # logged_in = False
+        input("\n Click enter/return \n")
+        print("\nYou have won the game. The program will automatically close once the song is finished.\n")
         sys.exit(0)
         
 
