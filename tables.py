@@ -52,21 +52,21 @@ class Round_Table(Base):
 if __name__ == '__main__':
     engine = create_engine('sqlite:///tables.db')
     # Round_Table.__table__.drop(engine)
-    Base.metadata.create_all(engine)
-    with Session(engine) as session:
+    # Base.metadata.create_all(engine)
+    # with Session(engine) as session:
     #     new_quest_data = Quest(
     #         title = "Defend your King",
     #         character = "Arthur, King of the Britions"
     #     )
     #     print(new_quest_data)
     #     session.add(new_quest_data)
-        session.commit()
+        # session.commit()
 
 # To delete a user from the db
 # def delete(name_delete):
 #     engine = create_engine('sqlite:///tables.db')
 #     with Session(engine) as session:
-#         session.query(User_Info).filter(User_Info.username == name_delete).delete()
+#         session.query(Round_Table).filter(Round_Table.knight_id == name_delete).delete()
 #         session.commit()
 
-# delete("Trial")
+# delete("3")

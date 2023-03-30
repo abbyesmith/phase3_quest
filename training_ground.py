@@ -47,10 +47,9 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
                 z$RRM8F"                             "N8@M$bL
                 5`RM$#                                  'R88f)R
                 'h.$"                                     #$x*
-        ''')
+            ''')
         print("WELCOME TO THE TRAINING GROUNDS")
         input("\n Click any key to continue \n")
-        # Broken
         last_outcome = session.query(Result).filter(Result.knight_id == current_knight_id).order_by(desc(Result.id)).first()
         if last_outcome.outcome == "loss":
             print(f"{knight_short_title}, you are a disgrace who should be shunned to fields to shovel the cow waste. \n Fortunatly for you, King Arthur sees promise in you and will allow you to continue your journey to joining the knights of the round table.")
@@ -66,8 +65,7 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
                /  :  \    
                     
                 '''
-            )
-        # print(last_outcome.outcome)
+                )
 
         results = session.query(Result).filter(Result.knight_id == current_knight_id).all()
         # print(results)
@@ -130,7 +128,7 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
 
         for quest in all_quests:
             if quest.id not in successful_quest_id_array:
-                print(f"     - repr(quest)")
+                print(f"     - {repr(quest)}")
 
         quest_selector = input(f"\nSelect the quest you wish to complete from the list above\n")
         
@@ -153,5 +151,4 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
             print(f"{quest_selector} is not a valid quest")
             quest_selector
 
-        logged_in = False
 
