@@ -53,7 +53,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 print("You venture into the village and find the finest shurbbery in all of the land and bring it back to the knights.")
                 input("\n Click enter/return to continue \n")
                 print("The Knights who say NI are not happy with the shrubbery offering. \nThe only choice is to engage in battle with the merciless knights. \nWhat is your best tacktical approach?")
-                king_3_input = input("     A) No way to tell\n     B) It is hard to say\n(A / B )")
+                king_3_input = input("     A) No way to tell\n     B) It is hard to say\n(A / B ) ")
                 if king_3_input == "b":
                     #Correct 
                     print(f"But of course {knight_full_title}! IT is the most damaging word to the Knights who say NI.\nThey shrivel into sniffling children as you walk past them.")
@@ -86,11 +86,12 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                     pass
                 else:
                     print("Answer the question! Select A or B\n")
+                    king_3_input
             elif king_2_input == "b":
                 #Incorrect
                 print(f"{knight_full_title}, you would sacrafice our minstral to live with the french?\nAs a benevolent king, I cannot force that cruel punishment upon any of my subjects!\n(under his breath) even if his music was redundant and lacked imagination\n")
                 input("\n Click enter/return to continue \n")
-                print("King Arthur tells you to be gone! And as punishment, you must walk with the minstral all the way back to the training grounds.")
+                print("King Arthur tells you to be gone! As punishment, you must walk with the minstral all the way back to the training grounds.")
                 input("\n Click enter/return to continue \n")
                 new_result = Result(
                     knight_id = current_knight_id,
@@ -103,6 +104,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 training_ground(session, knight_full_title, knight_short_title, current_knight_id)
             else:
                 print("Answer the question! Select A or B\n")
+                king_2_input
         elif king_1_input == "a":
             print("What? An English Swallow carry a coconut all the way from the tropics? \nIt's a matter of weight ratios! A 5 ounce bird couldn't carry a 1 pound coconut.\nClearly you are not a trusted source to advice the king if you do not understand basic bird math.")
             input("\n Click enter/return to continue \n")
@@ -122,3 +124,4 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
             #Incorrect
         else:
             print("Answer the question! Select A or B\n")
+            king_1_input

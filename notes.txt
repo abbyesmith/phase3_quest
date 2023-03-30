@@ -8,3 +8,7 @@ python3 tables.py
 
 to run the main:
 python3 main.py
+
+to run sound:
+pip3 install PyObjC
+This might need to happen every time? IDK

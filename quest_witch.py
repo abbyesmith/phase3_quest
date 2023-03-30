@@ -36,7 +36,6 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
     print("The Witch Trial of Camelot")
     input("\n Click enter/return to continue \n")
     print(f"A woman in Sir Bedivere's town is accused of being a witch. It is up to you, {knight_short_title} to decide if she is or is not a satanist witch.\nWhat do you know about witches that can help you solve this mystery?")
-    in_program = True
     while in_program:
         witch_1_input = input("     A) If she is made of wood, she is a witch \n     B) If she is wearing a pointed hat, she is a witch. \n(A / B) ").lower()
         if witch_1_input == "a": 
@@ -94,8 +93,10 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
                     training_ground(session, knight_full_title, knight_short_title, current_knight_id)
                 else:
                     print("Answer the question! Select A or B\n") 
+                    witch_3_input
             else:
                 print("Answer the question! Select A or B\n")
+                witch_2_input
                 # Continue
         elif witch_1_input == "b":
             print("\nYou fool. Any townsperson could have put the pointed hat on their head. \nMaybe you are the witch. \nWe'll need to burn you at the stake just to be sure.\n")
@@ -115,4 +116,5 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
 
         else:
             print("Answer the question! Select A or B\n")
+            witch_1_input
 

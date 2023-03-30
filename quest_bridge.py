@@ -51,7 +51,7 @@ def quest_bridge(session, knight_full_title, knight_short_title, current_knight_
                 print("We have a good little knight on our hands here who listens to the mission!")
                 input("\n Click enter/return to continue \n")
                 print("Question 3: What is your favorite color?")
-                bridge_3_input = input("     A) Blue\n     B) Yellow\n(A / B )")
+                bridge_3_input = input("     A) Blue\n     B) Yellow\n(A / B ) ")
                 if bridge_3_input == "b":
                     #Correct -- REMEMBER THE ANSWER IS YELLOW
                     print("You know your name, quest and favorite color?!? Wooza! You are clearly one of the most integent knights in this land.\nYou may cross the bridge to continue the quest for the holy grail.")
@@ -80,7 +80,8 @@ def quest_bridge(session, knight_full_title, knight_short_title, current_knight_
                     training_ground(session, knight_full_title, knight_short_title, current_knight_id)
                     pass
                 else:
-                    print("Answer the question! Select A or B\n")
+                    print("Answer the question! Select A or B\n ")
+                    bridge_3_input
             elif bridge_2_input == "b":
                 #Incorrect
                 print("While everyone knows that Sir Galhad had a warm welcome at the Castle of Anthrax, \ndo not get tempted with the mysteries that lay in the halls of Castle Anthrax.")
@@ -97,10 +98,12 @@ def quest_bridge(session, knight_full_title, knight_short_title, current_knight_
                 
             else:
                 print("Answer the question! Select A or B\n")
+                bridge_2_input
         elif bridge_1_input == "b":
             print(f"I don't know mate, seems like King Arthur should have a knight that at least knows their own name.\nThe standards are not even that high to become a knight.\nMostly the qualifications is to just not die")
             input("\n Click enter/return to continue \n")
             print("Tim the Enchantor explodes you off the cliff edge into the abiss. \nThankfully there's a path back to the training ground.\nYou return claiming a trick question is why you denied access to the brideg of death.")
+            input("\n Click enter/return to continue \n")
             new_result = Result(
                 knight_id = current_knight_id,
                 quest_id = 2,
@@ -113,6 +116,7 @@ def quest_bridge(session, knight_full_title, knight_short_title, current_knight_
 
         else:
             print("Answer the question! Select A or B\n")
+            bridge_1_input
         
 
 

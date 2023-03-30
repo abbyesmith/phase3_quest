@@ -39,18 +39,28 @@ class Result(Base):
     quest_id = Column(Integer(), ForeignKey('quest.id'))
     outcome = Column(String())
 
+class Round_Table(Base):
+    __tablename__ = 'round_table'
+    id = Column(Integer(), primary_key=True)
+    knight_id = Column(Integer(), ForeignKey('knight.id'))
+    knight_full_name = Column(String())
+    attempts = Column(Integer())
+
+    def __repr__(self):
+        return f"{self.knight_full_name} Score: {self.attempts}"
+
 if __name__ == '__main__':
     engine = create_engine('sqlite:///tables.db')
-    # User_Info.__table__.drop(engine)
-    # Base.metadata.create_all(engine)
-    # with Session(engine) as session:
+    # Round_Table.__table__.drop(engine)
+    Base.metadata.create_all(engine)
+    with Session(engine) as session:
     #     new_quest_data = Quest(
     #         title = "Defend your King",
     #         character = "Arthur, King of the Britions"
     #     )
     #     print(new_quest_data)
     #     session.add(new_quest_data)
-        # session.commit()
+        session.commit()
 
 # To delete a user from the db
 # def delete(name_delete):

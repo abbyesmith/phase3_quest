@@ -34,7 +34,7 @@ if __name__ == '__main__':
                 if checking_usernames:
                     print(f"The username {username_input} already exists. Please select a unique username.")
                 else:
-                    new_password = input("Password: ")
+                    new_password = input("Create Password: ")
                     new_user = User_Info(username=username_input, password=new_password)
                     session.add(new_user)
                     session.commit()
@@ -53,17 +53,34 @@ if __name__ == '__main__':
                     print(f"\nWelcome back {username_input}!")
                     # current_user_id is the id of the user that will be needed to link their account to their knights on the next page
                     current_user_id = session.query(User_Info.id).filter_by(username = username_input).scalar()
-                    password_input = input("\nEnter your password: \n")
-                    checking_passwords = session.query(User_Info).filter(User_Info.password == password_input).first()
-                    if checking_passwords:
-                        print("\nLog in successful")
-                        input("\n Click enter/return to continue \n")
-                        in_program = False
-                        introduction(session, current_user_id)
-                    else:
-                        print(f"Error: {password_input} is not your password")
-                        # THIS OPTION IS DONE
-                        # If time, give an option to do a .update to change the password
+                    password_attempt = True
+                    while password_attempt:
+                        password_input = input("\nEnter your password: \n")
+                        correct_password = checking_passwords = session.query(User_Info).filter(User_Info.password == password_input).first()
+                        if correct_password:
+                            print("\nLog in successful")
+                            input("\n Click enter/return to continue \n")
+                            in_program = False
+                            introduction(session, current_user_id)
+                            password_attempt = False
+                        else:
+                            print(f"Error: {password_input} is not your password")
+                            update_password_input = input("Would you like to reset your password? (yes / no)").lower()
+                            if update_password_input == "yes":
+                                new_password = input("Please enter your new password: ")
+                                user = session.query(User_Info).filter_by(username=username_input).first()
+                                user.password = new_password
+                                session.commit()
+                                password_attempt = False
+                                print(f"\nPassword successfully changed.\nUsername: {username_input} Password: {new_password}\n")
+                                input("\n Click enter/return to continue \n")
+                                in_program = False
+                                introduction(session, current_user_id)
+                                # THIS OPTION IS DONE
+                                pass
+                            else:
+                                input("Press enter to retry your password")
+                                # THIS OPTION IS DONE
                 else:
                     print("That is not a valid username. Here are the usernames that already exist: ")
                     all_users = session.query(User_Info).all()
@@ -77,4 +94,5 @@ if __name__ == '__main__':
 
             else:
                 print("Invalid input: " + start_input + "type one of the following (new / existing / not sure)")
+                start_input
                 # Done

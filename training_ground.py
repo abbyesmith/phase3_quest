@@ -2,6 +2,7 @@ from sqlalchemy import *
 from sqlalchemy.orm import *
 from tables import Result
 from tables import Quest
+from tables import Round_Table
 # This is creating a circular error, double check out more at bottom of code
 # from quest_bridge import quest_bridge
 # from quest_witch import quest_witch
@@ -84,7 +85,7 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
                        )\_|_/(
                     .=='\   /`==.
                  .'\    (`:')   /`.
-                 _/_ |_ .-' : `-._|__\_
+               _/_ |_ .-' : `-._|__\_
               <___>' \    :   / `<___>
               /  /    >=======<  /  /
             _/ .'    /  ,-:-.  \/=,'
@@ -101,8 +102,17 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
                       '--' `--`  
                 ''')
             print(f"Newest Member of King Arthur's Round Table: \n{knight_full_title}")
+            new_member = Round_Table(
+                knight_id = current_knight_id,
+                knight_full_name = knight_full_title,
+                attempts = len(result_array)
+            )
+            session.add(new_member)
+            session.commit()
+
             logged_in = False
-            round_table(session, knight_full_title, knight_short_title, successful_quest_id_array)
+            round_table(session, knight_full_title, knight_short_title, 
+            successful_quest_id_array, result_array)
         else:
             input("\n Click enter/return to continue \n")
             if len(successful_quest_id_array) == 2:
@@ -115,12 +125,12 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
                 print("The game is broken. Please try again")
         
         # Remaining quests:
-        print("Remaining quests:")
+        print("Remaining quests:\n")
         all_quests = session.query(Quest).all()
 
         for quest in all_quests:
             if quest.id not in successful_quest_id_array:
-                print(repr(quest))
+                print(f"     - repr(quest)")
 
         quest_selector = input(f"\nSelect the quest you wish to complete from the list above\n")
         
@@ -141,4 +151,7 @@ def training_ground(session, knight_full_title, knight_short_title, current_knig
             
         else:
             print(f"{quest_selector} is not a valid quest")
+            quest_selector
+
+        logged_in = False
 
