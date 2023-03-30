@@ -2,9 +2,10 @@ from sqlalchemy import *
 from sqlalchemy.orm import *
 from tables import Result
 from tables import Quest
-from quest_bridge import quest_bridge
-from quest_witch import quest_witch
-from quest_king import quest_king
+# This is creating a circular error, double check out more at bottom of code
+# from quest_bridge import quest_bridge
+# from quest_witch import quest_witch
+# from quest_king import quest_king
 from round_table import round_table
 
 def training_ground(session, knight_full_title, knight_short_title, current_knight_id):
@@ -124,15 +125,15 @@ K   ":                                                           z   R
     
     if quest_selector == "1":
         logged_in = False
-        quest_witch(session, knight_full_title, knight_short_title, current_knight_id)
+        # quest_witch(session, knight_full_title, knight_short_title, current_knight_id)
         pass
     elif quest_selector == "2":
         logged_in = False
-        quest_bridge(session, knight_full_title, knight_short_title, current_knight_id)
+        # quest_bridge(session, knight_full_title, knight_short_title, current_knight_id)
         pass
     elif quest_selector == "3":
         logged_in = False
-        quest_king(session, knight_full_title, knight_short_title, current_knight_id)
+        # quest_king(session, knight_full_title, knight_short_title, current_knight_id)
         pass
     else:
         print(f"{quest_selector} is not a valid quest")

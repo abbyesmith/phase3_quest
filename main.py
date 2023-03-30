@@ -57,7 +57,7 @@ if __name__ == '__main__':
                     checking_passwords = session.query(User_Info).filter(User_Info.password == password_input).first()
                     if checking_passwords:
                         print("\nLog in successful")
-                        input("\n Click any key to continue \n")
+                        input("\n Click enter/return to continue \n")
                         in_program = False
                         introduction(session, current_user_id)
                     else:

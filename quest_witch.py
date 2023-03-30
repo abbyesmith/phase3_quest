@@ -34,7 +34,7 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
         '''
     )
     print("The Witch Trial of Camelot")
-    input("\n Click any key to continue \n")
+    input("\n Click enter/return to continue \n")
     print(f"A woman in Sir Bedivere's town is accused of being a witch. It is up to you, {knight_short_title} to decide if she is or is not a satanist witch.\nWhat do you know about witches that can help you solve this mystery?")
     in_program = True
     while in_program:
@@ -45,7 +45,7 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
             witch_2_input = input("     A) Burn her!!!! \n     B) Check if she floats. \n(A / B) ").lower()
             if witch_2_input == "a":
                 print(f"\n{knight_full_title} - clearly you are not an honorable knight. You would have us burn a person before we have found them guilty of being a witch? \n You are banished from the town for your poor decision making.")
-                input("\n   Click any key to continue \n")
+                input("\n   Click enter/return to continue \n")
                 # Failure
                 new_result = Result(
                     knight_id = current_knight_id,
@@ -64,7 +64,7 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
                 witch_3_input = input("     A) See if she can turn David into a newt \n     B) Check if she weighs the same as a duck \n(A / B) ").lower()
                 if witch_3_input == "a":
                     print(f"\n{knight_full_title} - I am ashamed of you. You would risk the life of the knowledgable David by sacrificing him to potintally become a newt?!? \nAn angry mob runs you out of the village.")
-                    input("\n   Click any key to continue \n")
+                    input("\n   Click enter/return to continue \n")
                     # Failure
                     new_result = Result(
                         knight_id = current_knight_id,
@@ -78,9 +78,9 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
                     # Send to training ground
                 elif witch_3_input == "b":
                     print("\nYES! A duck floats, thus anything that weighs more than a duck would not float.\nThis is irrefutable logic. \n")
-                    input("\n   Click any key to continue \n")
+                    input("\n   Click enter/return to continue \n")
                     print("The townspeople take the woman to the scales and compares her weight to a duck. \nShe weighs more than the duck! She is a witch! \nYou have saved the town from the evils of the occult and they will build a statue in honor of you (after they burn the witch, of course).") 
-                    input("\n   Click any key to continue \n")
+                    input("\n   Click enter/return to continue \n")
                     print("Return to the training ground.")
                     # SUCCESSFUL QUEST
                     new_result = Result(
@@ -99,9 +99,9 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
                 # Continue
         elif witch_1_input == "b":
             print("\nYou fool. Any townsperson could have put the pointed hat on their head. \nMaybe you are the witch. \nWe'll need to burn you at the stake just to be sure.\n")
-            input("\n   Click any key to continue \n")
+            input("\n   Click enter/return to continue \n")
             print("You flee the scene in disgrace")
-            input("\n   Click any key to continue \n")
+            input("\n   Click enter/return to continue \n")
             #Failure
             new_result = Result(
                 knight_id = current_knight_id,
