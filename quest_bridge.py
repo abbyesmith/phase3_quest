@@ -42,7 +42,7 @@ def quest_bridge(session, knight_full_title, knight_short_title, current_knight_
         
         bridge_1_input = input(f"     A) Sir Galahad the Chaste and {knight_short_title} \n     B) Tim the Enchanter\n(A / B) ").lower()
         if bridge_1_input == "a":
-            print("Correct, but don't be too proud of yourself. Even a 2 year old knows how to that")
+            print("Correct, but don't be too proud of yourself. Even a 2 year old knows how to do that")
             input("\n Click enter/return to continue \n")
             print("Question2: What is your quest?")
             

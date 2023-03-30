@@ -63,11 +63,11 @@ def introduction(session, current_user_id):
         '''
     )
     print(f"Greetings {knight_full_title}! We have been looking for a knight with your abilities to assist Arthur, King of the Britons, on his quest for the holy grail.\n")
-    input("\n Click any key to continue \n")
-    print(f"{knight_short_title}, in order to earn a seat at King Arthur's round table of knights, \nyou must successfully complete 2 quests with the following heroic knights \nand 1 with the Good King himself!") 
-    input("\n Click any key to continue \n")
-    print("It is your choice on the order to complete the quests. \n If you fail a quest, you will be brought back to the training yard to restart the quest or select a different quest. \n When you successfully complete a quest, you will return to the training yard to select a new quest. \n Upon successful completion of the three quests, you will be awarded a coveted seat at King Arthur's Round Table!")
-    input("\n Click any key to continue \n")
+    input("\n Click enter/return to continue \n")
+    print(f"{knight_short_title}, in order to earn a seat at King Arthur's round table of knights, \nyou must successfully complete 2 quests with the following heroic knights and 1 with the Good King himself!") 
+    input("\n Click enter/return to continue \n")
+    print("It is your choice on the order to complete the quests. \nIf you fail a quest, you will be brought back to the training yard to restart the quest or select a different quest. \nWhen you successfully complete a quest, you will return to the training yard to select a new quest. \n Upon successful completion of the three quests, you will be awarded a coveted seat at King Arthur's Round Table!")
+    input("\n Click enter/return to continue \n")
     # def show_quests():
     quests = session.query(Quest).all()
 
