@@ -12,3 +12,19 @@ python3 main.py
 to run sound:
 pip3 install PyObjC
 This might need to happen every time? IDK
+
+to make something magenta - Pictures
+colorama.Fore.MAGENTA + colorama.Style.BRIGHT +
+
+to make something CYAN - Press Enter
+colorama.Fore.CYAN + 
+
+to make something GREEN - Pick a Number OR insert text (but not a letter choice)
+colorama.Fore.GREEN + colorama.Style.BRIGHT +
+
+to make something YELLOW - Pick a Letter
+colorama.Fore.YELLOW + colorama.Style.BRIGHT +
+
+
+Reset color:
+print(colorama.Style.RESET_ALL)

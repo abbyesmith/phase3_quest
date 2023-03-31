@@ -52,7 +52,7 @@ class Round_Table(Base):
 if __name__ == '__main__':
     engine = create_engine('sqlite:///tables.db')
     # Round_Table.__table__.drop(engine)
-    # Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine)
     # with Session(engine) as session:
     #     new_quest_data = Quest(
     #         title = "Defend your King",
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     #     )
     #     print(new_quest_data)
     #     session.add(new_quest_data)
-        # session.commit()
+    session.commit()
 
 # To delete a user from the db
 # def delete(name_delete):

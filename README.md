@@ -11,6 +11,12 @@ pipenv install
 pipenv shell
 ```
 
+## Start Game
+In the terminal, run the following command:
+```bash
+$ python3 main.py
+```
+
 ## Summary
 Step 1 - Log in
 
