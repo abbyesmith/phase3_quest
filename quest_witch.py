@@ -48,13 +48,13 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
         if witch_1_input == "a": 
             # correct
             print("Of course all witches are made of wood! Even a peasent would know that. \nBut how should you check if she is made of wood without killing a potentially innocent person?")
-            playsound('/Users/abbysmith/Development/code/phase-3/phase3_quest/sound-effect-twinklesparkle-115095.mp3')
+            playsound('./sound-effect-twinklesparkle-115095.mp3')
             witch_2_input = input(colorama.Fore.YELLOW + colorama.Style.BRIGHT +"     A) Burn her!!!! \n     B) Check if she floats. \n(A / B) ").lower()
             print(colorama.Style.RESET_ALL)
             if witch_2_input == "a":
                 print(f"\n{knight_full_title} - clearly you are not an honorable knight. You would have us burn a person before we have found them guilty of being a witch? \n You are banished from the town for your poor decision making.")
                 input(colorama.Fore.CYAN + "\n   Click enter/return to continue \n")
-                playsound("/Users/abbysmith/Development/code/phase-3/phase3_quest/failure-drum-sound-effect-2-7184.mp3")
+                playsound("./failure-drum-sound-effect-2-7184.mp3")
                 print(colorama.Style.RESET_ALL)
                 # Failure
                 new_result = Result(
@@ -71,12 +71,12 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
             elif witch_2_input == "b":
                 # correct
                 print(f"{knight_full_title}, you are clearly a person who has an expansive scientific knowledge! \nThe nearest body of water is much too far away to drag this woman. How else could we check if she floats?")
-                playsound('/Users/abbysmith/Development/code/phase-3/phase3_quest/sound-effect-twinklesparkle-115095.mp3')
+                playsound('./sound-effect-twinklesparkle-115095.mp3')
                 witch_3_input = input(colorama.Fore.YELLOW + colorama.Style.BRIGHT +"     A) See if she can turn David into a newt \n     B) Check if she weighs the same as a duck \n(A / B) ").lower()
                 print(colorama.Style.RESET_ALL)
                 if witch_3_input == "a":
                     print(f"\n{knight_full_title} - I am ashamed of you. You would risk the life of the knowledgable David by sacrificing him to potintally become a newt?!? \nAn angry mob runs you out of the village.")
-                    playsound("/Users/abbysmith/Development/code/phase-3/phase3_quest/failure-drum-sound-effect-2-7184.mp3")
+                    playsound("./failure-drum-sound-effect-2-7184.mp3")
                     input(colorama.Fore.CYAN + "\n   Click enter/return to continue \n")
                     print(colorama.Style.RESET_ALL)# Failure
                     new_result = Result(
@@ -90,7 +90,7 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
                     training_ground(session, knight_full_title, knight_short_title, current_knight_id)
                     # Send to training ground
                 elif witch_3_input == "b":
-                    playsound('/Users/abbysmith/Development/code/phase-3/phase3_quest/sound-effect-twinklesparkle-115095.mp3')
+                    playsound('./sound-effect-twinklesparkle-115095.mp3')
                     print("\nYES! A duck floats, thus anything that weighs more than a duck would not float.\nThis is irrefutable logic. \n")
                     input(colorama.Fore.CYAN + "\n   Click enter/return to continue \n")
                     print(colorama.Style.RESET_ALL)
@@ -117,7 +117,7 @@ def quest_witch(session, knight_full_title, knight_short_title, current_knight_i
                 # Continue
         elif witch_1_input == "b":
             print("\nYou fool. Any townsperson could have put the pointed hat on their head. \nMaybe you are the witch. \nWe'll need to burn you at the stake just to be sure.\n")
-            playsound("/Users/abbysmith/Development/code/phase-3/phase3_quest/failure-drum-sound-effect-2-7184.mp3")
+            playsound("./failure-drum-sound-effect-2-7184.mp3")
             input(colorama.Fore.CYAN + "\n   Click enter/return to continue \n")
             print(colorama.Style.RESET_ALL)
             print("You flee the scene in disgrace")

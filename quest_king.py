@@ -60,7 +60,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 print("Yes, running away is the most nobel way to battle. Well chosen.")
                 input(colorama.Fore.CYAN + "\n Click enter/return to continue \n")
                 print(colorama.Style.RESET_ALL)
-                print("You and King Arthur enter into the woods on your journey and are surrounded by the most vicious of villians - The Knights Who Say NI!\nThe knights begin to attack by shouting NI at you (and occasionally Ping and Nuu-Wom!)\nYou plead for them to spare your life and they argree, but only if you bring them a [dramatic chord] shrubbery!")
+                print("You and King Arthur enter into the woods on your journey and are surrounded by the most vicious of villians - The Knights Who Say NI!\nThe knights begin to attack by shouting NI at you (and occasionally Ping and Nuu-Wom!)\nYou plead for them to spare your life and they agree, but only if you bring them a [dramatic chord] shrubbery!")
                 input(colorama.Fore.CYAN + "\n Click enter/return to continue \n")
                 print(colorama.Style.RESET_ALL)
                 print("You venture into the village and find the finest shurbbery in all of the land and bring it back to the knights.")
